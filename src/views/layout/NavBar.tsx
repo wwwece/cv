@@ -12,9 +12,13 @@ const StyledNav = styled.nav`
 const NavBar: React.FC = () => {
   return (
     <StyledNav>
-      {navBarRoutes.map(({ path, label }) => (
-        <Link to={path}>{label}</Link>
-      ))}
+      <ul>
+        {navBarRoutes.map(({ path, label }) => (
+          <li key={path}>
+            <Link to={path}>{label}</Link>
+          </li>
+        ))}
+      </ul>
     </StyledNav>
   );
 };

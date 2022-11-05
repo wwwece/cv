@@ -1,12 +1,17 @@
 import React from 'react';
 import './i18n/config';
 import Router from './router/Router';
+import { ThemeProvider } from './theme';
+import GlobalStyle from './theme/globalStyle';
 
 function App() {
   return (
     <div>
-      {/* <TileGrid /> */}
-      <Router />
+      <ThemeProvider>
+        <GlobalStyle />
+        {/* <TileGrid /> */}
+        <Router />
+      </ThemeProvider>
     </div>
   );
 }
