@@ -15,13 +15,26 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
     
     background-image: url('bg.jpg');
+    background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     background-color: ${(p) => p.theme.color.background};
     background-blend-mode: ${(p) =>
       p.theme.colorTheme === 'color' ? undefined : 'luminosity'};
-}
+  }
+
+  p {
+    ${(p) => p.theme.font.size[18]};
+    line-height: 200%;
+  }
+  
+  h1 { ${(p) => p.theme.font.size[32]}; }
+  h2 { ${(p) => p.theme.font.size[28]}; }
+  h3 { ${(p) => p.theme.font.size[24]}; }
+  h4 { ${(p) => p.theme.font.size[20]}; }
+  h5 { ${(p) => p.theme.font.size[20]}; }
+  h6 { ${(p) => p.theme.font.size[20]}; }
 
   ul {
     list-style-type: none;
