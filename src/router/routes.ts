@@ -6,7 +6,7 @@ import FrontPage from '../views/FrontPage';
 import Me from '../views/Me';
 import Work from '../views/Work';
 
-const pathAndLabel = (key: string) => {
+export const pathAndLabel = (key: string) => {
   const label = i18n.t(`route:${key}`);
   return { path: slugify(label), label };
 };

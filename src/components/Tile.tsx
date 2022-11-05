@@ -10,9 +10,6 @@ const Container = styled.div<{ flipped: boolean; color?: string }>`
   transition: 1000ms;
   user-select: none;
 
-  /* transform: perspective(0) rotateY(var(--rotate-y, 50))
-    translateY(var(--translate-y, 50)); */
-
   &.flipped {
     transform: rotateY(180deg);
   }
@@ -60,6 +57,8 @@ const Tile: React.FC<Props> = ({
 }) => {
   const [flipped, setFlipped] = useState(false);
 
+  // If allFlipped flag was turner on, flip all tiles.
+  // The delay is increasing for each tile in order to create a chain reaction.
   useEffect(() => {
     if (allFlipped && !flipped) {
       setTimeout(() => {
@@ -68,6 +67,14 @@ const Tile: React.FC<Props> = ({
       }, FLIP_DELAY * index);
     }
   }, [allFlipped, flipped, index, onFlip]);
+
+  // Check if "allFlipped" changed back to false.
+  // In that case all tiles should be visible again.
+  useEffect(() => {
+    if (!allFlipped) {
+      setFlipped(false);
+    }
+  }, [allFlipped]);
 
   const handleMouseEnter = () => {
     setFlipped(true);

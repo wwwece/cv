@@ -3,7 +3,7 @@ import React from 'react';
 const Work = () => {
   return (
     <div>
-      <div>Information about my work history</div>
+      <p>Information about my work history</p>
     </div>
   );
 };

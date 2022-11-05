@@ -43,30 +43,45 @@ const Row = styled.div`
 const CardGrid: React.FC = observer(() => {
   const { uiStore } = useStore();
 
+  const [flippedCount, setFlippedCount] = useState(0);
+  const [allFlipped, setAllFlipped] = useState(uiStore.introCompleted);
+
   const { tiles, totalTileCount } = useMemo(
     () => getTiles({ inColor: uiStore.colorTheme === 'color' }),
     [uiStore.colorTheme]
   );
 
-  const [flippedCount, setFlippedCount] = useState(0);
-  const [allFlipped, setAllFlipped] = useState(false);
-
   const isAllTilesFlipped = flippedCount >= totalTileCount;
   const flippedPercent = flippedCount / totalTileCount;
   const showFlipAllButton = flippedPercent >= SHOW_FLIP_ALL_BUTTON_THRESHOLD;
 
-  // Flip all tiles after user has manually flipped certain percent of them (threshold)
+  /**
+   * Flip all tiles after user has manually flipped certain percent of them (threshold)
+   */
   useEffect(() => {
     if (flippedPercent >= FLIP_ALL_THRESHOLD) setAllFlipped(true);
   }, [flippedPercent]);
 
+  /**
+   * If all tiles are turner -> "Intro" is over
+   */
   useEffect(() => {
     if (isAllTilesFlipped) {
       setTimeout(() => {
-        uiStore.setIntroCompeleted(true);
+        uiStore.setIntroCompleted(true);
       }, 500);
     }
   }, [isAllTilesFlipped, uiStore]);
+
+  /**
+   * Check if "intro" was turned back on -> Initialize tile grid
+   */
+  useEffect(() => {
+    if (!uiStore.introCompleted) {
+      setFlippedCount(0);
+      setAllFlipped(false);
+    }
+  }, [uiStore.introCompleted]);
 
   const handleFlipAll = () => {
     setAllFlipped(true);

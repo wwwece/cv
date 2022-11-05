@@ -31,6 +31,16 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
   }
 
+  button {
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  hr {
+    border: 1px solid ${(p) => p.theme.color.text};;
+  }
+
   @keyframes slideInFromBottom {
     0% {
       transform: translateY(110vh);

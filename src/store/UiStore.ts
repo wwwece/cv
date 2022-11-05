@@ -27,7 +27,7 @@ export class UiStore {
     };
   }
 
-  setIntroCompeleted = (value: boolean) => (this.introCompleted = value);
+  setIntroCompleted = (value: boolean) => (this.introCompleted = value);
 
   toggleColorTheme = () =>
     (this.colorTheme = this.colorTheme === 'bw' ? 'color' : 'bw');

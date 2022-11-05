@@ -5,10 +5,10 @@ export const Colors = {
   secondary: '',
   grey: '#21262b',
   accent: '',
-  foreground: 'white',
+  foreground: '#fff',
   background: '#21262b',
   text: '#21262b',
-  error: 'red',
+  error: '#b30000',
   success: 'green',
   basket: [
     '#F94144',

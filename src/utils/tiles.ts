@@ -1,9 +1,9 @@
 import { randomColor } from '../theme';
 
-export const FLIP_ALL_THRESHOLD = 0.1;
+export const FLIP_ALL_THRESHOLD = 0.15;
 export const SHOW_FLIP_ALL_BUTTON_THRESHOLD = 0.02;
 
-export const ROWS_COUNT = 20;
+export const ROWS_COUNT = 21;
 export const COLS_COUNT = 40;
 const DEFAULT_TEXT = 'Hell, world!';
 

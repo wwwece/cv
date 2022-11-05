@@ -2,13 +2,14 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { navBarRoutes } from '../../router/routes';
+import { randomColor } from '../../theme';
+
+export const NAV_ITEM_WIDTH = 280;
 
 const Container = styled.ul`
   display: flex;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.75);
-
-  animation: 0.5s ease-out 0s 1 slideInFromBottom;
+  align-items: stretch;
 `;
 
 const NavItem = styled.li`
@@ -16,29 +17,43 @@ const NavItem = styled.li`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 280px;
+    width: ${NAV_ITEM_WIDTH}px;
     height: 100%;
     padding: ${(p) => p.theme.spacing.lg};
     cursor: pointer;
 
     text-align: center;
     text-decoration: none;
-    color: ${(p) => p.theme.color.text};
+
+    ${(p) => {
+      switch (p.theme.colorTheme) {
+        case 'color':
+          return `
+            background-color: ${randomColor()};
+            color: ${p.theme.color.foreground};
+            opacity: 0.75;
+            &.is-active, :hover {
+              opacity: 1;
+            }
+            :active {
+              opacity: 0.75;
+            }
+          `;
+        default:
+          return `
+            background-color: none;
+            color: ${p.theme.color.text};
+            &.is-active, :hover  {
+              background-color: rgba(255, 255, 255, 0.5);
+            }
+            :active {
+              background-color: rgba(255, 255, 255, 1);
+            }
+          `;
+      }
+    }}
+
     ${(p) => p.theme.font.size[24]};
-
-    &.is-active {
-      background-color: rgba(255, 255, 255, 0.5);
-    }
-
-    transition: 0.25s;
-
-    :hover {
-      background-color: rgba(255, 255, 255, 0.5);
-    }
-
-    :active {
-      background-color: rgba(255, 255, 255, 1);
-    }
   }
 `;
 
