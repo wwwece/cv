@@ -1,14 +1,12 @@
 import React from 'react';
 import TileGrid from './components/TileGrid';
+import Router from './router/Router';
 
 function App() {
   return (
-    <div className="App">
-      <TileGrid />
-
-      <main>
-        <p>?</p>
-      </main>
+    <div>
+      {/* <TileGrid /> */}
+      <Router />
     </div>
   );
 }
