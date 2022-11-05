@@ -7,7 +7,7 @@ import Header from './Header';
 import { NAV_ITEM_WIDTH } from './NavBar';
 
 const Main = styled.main`
-  width: ${NAV_ITEM_WIDTH * 3}px;
+  max-width: ${NAV_ITEM_WIDTH * 3}px;
   height: 100%;
   overflow-x: scroll;
   background-color: rgba(255, 255, 255, 0.9);
@@ -19,6 +19,16 @@ const Main = styled.main`
   margin-right: auto;
 
   animation: 1s ease-out 0s 1 slideInFromBottom;
+
+  @media ${(p) => p.theme.breakpoint.tablet} {
+    margin-top: ${(p) => p.theme.spacing.xl};
+  }
+
+  @media ${(p) => p.theme.breakpoint.mobile} {
+    margin-top: ${(p) => p.theme.spacing.lg};
+    margin-left: ${(p) => p.theme.spacing.lg};
+    margin-right: ${(p) => p.theme.spacing.lg};
+  }
 `;
 
 export const Layout: React.FC = observer(() => {

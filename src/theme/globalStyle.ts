@@ -14,8 +14,6 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     
-    overflow: hidden;
-
     background-image: url('bg.jpg');
     background-position: center;
     background-repeat: no-repeat;

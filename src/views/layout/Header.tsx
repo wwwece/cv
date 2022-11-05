@@ -14,12 +14,11 @@ const StyledHeader = styled.header`
   .left-content,
   .right-content {
     position: absolute;
+    z-index: 1;
   }
-
   .left-content {
     left: ${(p) => p.theme.spacing.xxl};
   }
-
   .right-content {
     right: ${(p) => p.theme.spacing.xxl};
   }
@@ -39,6 +38,15 @@ const StyledHeader = styled.header`
   }};
 
   animation: 0.5s ease-out 0s 1 slideInFromBottom;
+
+  @media ${(p) => p.theme.breakpoint.tablet} {
+    .left-content {
+      left: ${(p) => p.theme.spacing.md};
+    }
+    .right-content {
+      right: ${(p) => p.theme.spacing.md};
+    }
+  }
 `;
 
 const Header: React.FC = () => {

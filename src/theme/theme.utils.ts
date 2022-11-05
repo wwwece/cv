@@ -26,7 +26,7 @@ export const Colors = {
 
 export enum Breakpoint {
   mobile = 800,
-  tablet = 1000,
+  tablet = 1100,
   laptop = 1200,
 }
 

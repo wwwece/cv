@@ -10,6 +10,13 @@ const Container = styled.ul`
   display: flex;
   justify-content: center;
   align-items: stretch;
+
+  @media ${(p) => p.theme.breakpoint.tablet} {
+    flex-wrap: wrap;
+    width: 100vw;
+    justify-content: stretch;
+    align-items: stretch;
+  }
 `;
 
 const NavItem = styled.li`
@@ -54,6 +61,20 @@ const NavItem = styled.li`
     }}
 
     ${(p) => p.theme.font.size[24]};
+  }
+
+  @media ${(p) => p.theme.breakpoint.tablet} {
+    width: 50vw;
+    a {
+      width: 50vw;
+    }
+  }
+
+  @media ${(p) => p.theme.breakpoint.mobile} {
+    width: 100vw;
+    a {
+      width: 100vw;
+    }
   }
 `;
 

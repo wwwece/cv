@@ -1,10 +1,13 @@
 import { randomColor } from '../theme';
+import { getWindowDimensions } from './window';
 
 export const FLIP_ALL_THRESHOLD = 0.15;
 export const SHOW_FLIP_ALL_BUTTON_THRESHOLD = 0.02;
 
 export const ROWS_COUNT = 21;
 export const COLS_COUNT = 40;
+export const COLS_COUNT_TABLET = 20;
+export const COLS_COUNT_MOBILE = 15;
 const DEFAULT_TEXT = 'Hell, world!';
 
 interface GetTiles {
@@ -15,9 +18,14 @@ interface GetTiles {
 }
 
 export const getTiles = (props: GetTiles = {}) => {
+  const { isTablet, isMobile } = getWindowDimensions();
   const {
     rowCount = ROWS_COUNT,
-    colCount = COLS_COUNT,
+    colCount = isMobile
+      ? COLS_COUNT_MOBILE
+      : isTablet
+      ? COLS_COUNT_TABLET
+      : COLS_COUNT,
     text = DEFAULT_TEXT,
     inColor,
   } = props;

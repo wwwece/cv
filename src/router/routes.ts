@@ -1,6 +1,7 @@
 import i18n from '../i18n/config';
 import { RouteCategory } from '../types/routes.enums';
 import { slugify } from '../utils';
+import BehindTheScenes from '../views/BehindTheScenes';
 import Education from '../views/Education';
 import FrontPage from '../views/FrontPage';
 import Me from '../views/Me';
@@ -31,6 +32,11 @@ const routes: Route[] = [
   {
     ...pathAndLabel('work'),
     Element: Work,
+    category: [RouteCategory.navBar],
+  },
+  {
+    ...pathAndLabel('behindTheScenes'),
+    Element: BehindTheScenes,
     category: [RouteCategory.navBar],
   },
 ];

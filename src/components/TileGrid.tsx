@@ -53,7 +53,9 @@ const CardGrid: React.FC = observer(() => {
 
   const isAllTilesFlipped = flippedCount >= totalTileCount;
   const flippedPercent = flippedCount / totalTileCount;
-  const showFlipAllButton = flippedPercent >= SHOW_FLIP_ALL_BUTTON_THRESHOLD;
+  const showFlipAllButton =
+    uiStore.windowDimensions.isTablet ||
+    flippedPercent >= SHOW_FLIP_ALL_BUTTON_THRESHOLD;
 
   /**
    * Flip all tiles after user has manually flipped certain percent of them (threshold)
