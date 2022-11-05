@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, Suspense } from 'react';
 import { Route as RouterRoute, BrowserRouter, Routes } from 'react-router-dom';
 import ScrollToTop from './ScrollToTop';
 import ViewWrapper from './ViewWrapper';
@@ -11,22 +11,25 @@ interface Props {
 
 const Router: FC<Props> = ({ routes = defaultRoutes }) => (
   <BrowserRouter>
-    <ScrollToTop />
-    <Routes>
-      <RouterRoute path="/" element={<Layout />}>
-        {routes.map(({ title, Element, ...props }) => (
-          <RouterRoute
-            key={props.path}
-            element={
-              <ViewWrapper title={title}>
-                <Element />
-              </ViewWrapper>
-            }
-            {...props}
-          />
-        ))}
-      </RouterRoute>
-    </Routes>
+    <Suspense fallback="Loading...">
+      <ScrollToTop />
+
+      <Routes>
+        <RouterRoute path="/" element={<Layout />}>
+          {routes.map(({ label, Element, ...props }) => (
+            <RouterRoute
+              key={props.path}
+              element={
+                <ViewWrapper title={label}>
+                  <Element />
+                </ViewWrapper>
+              }
+              {...props}
+            />
+          ))}
+        </RouterRoute>
+      </Routes>
+    </Suspense>
   </BrowserRouter>
 );
 

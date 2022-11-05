@@ -1,6 +1,7 @@
 interface Route {
   path: string;
   index?: boolean;
-  title: string;
-  Element: () => JSX.Element;
+  label: string;
+  Element: LazyExoticComponent<() => Element>;
+  category?: import('./routes.enums').RouteCategory[];
 }

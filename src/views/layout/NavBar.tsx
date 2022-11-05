@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { navBarRoutes } from '../../router/routes';
 
 const StyledNav = styled.nav`
   padding: 1rem;
@@ -10,7 +12,9 @@ const StyledNav = styled.nav`
 const NavBar: React.FC = () => {
   return (
     <StyledNav>
-      <div>Navigaatio tähän</div>
+      {navBarRoutes.map(({ path, label }) => (
+        <Link to={path}>{label}</Link>
+      ))}
     </StyledNav>
   );
 };

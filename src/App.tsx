@@ -1,5 +1,5 @@
 import React from 'react';
-import TileGrid from './components/TileGrid';
+import './i18n/config';
 import Router from './router/Router';
 
 function App() {
