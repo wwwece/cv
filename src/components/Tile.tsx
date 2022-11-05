@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
+const FLIP_DELAY = 8; // ms
+
 const Container = styled.div<{ flipped: boolean }>`
   position: relative;
   flex: 1;
   transform-style: preserve-3d;
   transition: 1000ms;
   user-select: none;
-  font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 1rem;
 
   /* transform: perspective(0) rotateY(var(--rotate-y, 50))
     translateY(var(--translate-y, 50)); */
@@ -32,13 +32,13 @@ const Container = styled.div<{ flipped: boolean }>`
 
   .front {
     /* box-shadow: 2px 2px 6px 2px rgba(0, 0, 0, 0.1); */
-    background-color: #282c34;
-    color: white;
+    background-color: ${(p) => p.theme.color.primary};
+    color: ${(p) => p.theme.color.foreground};
   }
 
   .back {
     display: none;
-    background-color: black;
+    background-color: ${(p) => p.theme.color.background};
     transform: rotateY(180deg);
   }
 `;
@@ -56,7 +56,7 @@ const Tile: React.FC<Props> = ({ content, index, allFlipped, onFlip }) => {
       setTimeout(() => {
         setFlipped(true);
         onFlip();
-      }, 8 * index);
+      }, FLIP_DELAY * index);
     }
   }, [allFlipped, flipped, index, onFlip]);
 

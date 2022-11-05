@@ -2,6 +2,10 @@ import React, { useState, useCallback, useEffect } from 'react';
 import styled from 'styled-components';
 import Tile from './Tile';
 import Button from './Button';
+import { useStore } from '../store';
+
+const FLIP_ALL_THRESHOLD = 0.2;
+const SHOW_FLIP_ALL_BUTTON_THRESHOLD = 0.02;
 
 const ROWS = 20;
 const COLS = 40;
@@ -32,6 +36,8 @@ const Row = styled.div`
 `;
 
 const CardGrid: React.FC = () => {
+  const { uiStore } = useStore();
+
   const row: string[] = Array(COLS).fill('');
   const rows: string[][] = Array(ROWS).fill(row);
 
@@ -60,13 +66,20 @@ const CardGrid: React.FC = () => {
 
   const isAllTilesFlipped = flippedCount >= tileCount;
   const flippedPercent = flippedCount / tileCount;
-  const showFlipAllButtonThreshold = 0.02;
-  const showFlipAllButton = flippedPercent >= showFlipAllButtonThreshold;
-  const flipAllThreshold = 0.2;
+  const showFlipAllButton = flippedPercent >= SHOW_FLIP_ALL_BUTTON_THRESHOLD;
+
+  // Flip all tiles after user has manually flipped certain percent of them (threshold)
+  useEffect(() => {
+    if (flippedPercent >= FLIP_ALL_THRESHOLD) setAllFlipped(true);
+  }, [flippedPercent]);
 
   useEffect(() => {
-    if (flippedPercent >= flipAllThreshold) setAllFlipped(true);
-  }, [flipAllThreshold, flippedPercent]);
+    if (isAllTilesFlipped) {
+      setTimeout(() => {
+        uiStore.setIntroCompeleted(true);
+      }, 1000);
+    }
+  }, [isAllTilesFlipped, uiStore]);
 
   const handleFlipAll = () => {
     setAllFlipped(true);
@@ -87,9 +100,9 @@ const CardGrid: React.FC = () => {
           {row.map((tile: TileType, j: number) => (
             <Tile
               key={j}
-              {...tile}
               allFlipped={allFlipped}
               onFlip={handleAddToFlippedCount}
+              {...tile}
             />
           ))}
         </Row>

@@ -7,7 +7,6 @@ const Container = styled.ul`
   display: flex;
   justify-content: center;
   background-color: rgba(255, 255, 255, 0.75);
-  margin-top: ${(p) => p.theme.spacing.xxl};
 
   animation: 0.5s ease-out 0s 1 slideInFromBottom;
 `;
