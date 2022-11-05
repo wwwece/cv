@@ -5,7 +5,12 @@ import NavBar from './NavBar';
 export const Layout: React.FC = () => {
   return (
     <div>
-      <NavBar />
+      <header>
+        <nav>
+          <NavBar />
+        </nav>
+      </header>
+
       <main>
         <Outlet />
       </main>

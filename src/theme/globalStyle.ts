@@ -1,6 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
+  html { box-sizing: border-box; }
+  *, *:before, *:after { box-sizing: inherit; }
+
   body {
     margin: 0;
     height: 100vh;
@@ -24,6 +27,16 @@ const GlobalStyle = createGlobalStyle`
   ul {
     list-style-type: none;
     padding: 0;
+    margin: 0;
+  }
+
+  @keyframes slideInFromBottom {
+    0% {
+      transform: translateY(110vh);
+    }
+    100% {
+      transform: translateX(0);
+    }
   }
 `;
 

@@ -1,12 +1,10 @@
-import { lazy } from 'react';
 import i18n from '../i18n/config';
 import { RouteCategory } from '../types/routes.enums';
 import { slugify } from '../utils';
-
-const FrontPage = lazy(() => import('../views/FrontPage'));
-const Me = lazy(() => import('../views/Me'));
-const Education = lazy(() => import('../views/Education'));
-const Work = lazy(() => import('../views/Work'));
+import Education from '../views/Education';
+import FrontPage from '../views/FrontPage';
+import Me from '../views/Me';
+import Work from '../views/Work';
 
 const pathAndLabel = (key: string) => {
   const label = i18n.t(`route:${key}`);
@@ -35,7 +33,6 @@ const routes: Route[] = [
     Element: Work,
     category: [RouteCategory.navBar],
   },
-  // TODO: notFoundRoute,
 ];
 
 export const navBarRoutes = routes.filter(({ category }) =>

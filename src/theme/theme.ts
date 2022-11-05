@@ -26,8 +26,9 @@ export const theme: DefaultTheme = {
   spacing: {
     sm: '0.375rem',
     md: '0.625rem',
-    lg: '1.5rem',
-    xl: '2.5rem',
+    lg: '1rem',
+    xl: '1.5rem',
+    xxl: '2.5rem',
   },
 
   breakpoint: {
