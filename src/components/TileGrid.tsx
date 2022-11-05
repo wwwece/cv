@@ -77,7 +77,7 @@ const CardGrid: React.FC = () => {
     if (isAllTilesFlipped) {
       setTimeout(() => {
         uiStore.setIntroCompeleted(true);
-      }, 1000);
+      }, 500);
     }
   }, [isAllTilesFlipped, uiStore]);
 
@@ -91,8 +91,8 @@ const CardGrid: React.FC = () => {
 
   return (
     <Container ejected={isAllTilesFlipped}>
-      {showFlipAllButton && (
-        <Button text={'Flip all'} onClick={handleFlipAll} />
+      {showFlipAllButton && !allFlipped && (
+        <Button textKey="action:flipAll" onClick={handleFlipAll} />
       )}
 
       {tiles.map((row, i) => (

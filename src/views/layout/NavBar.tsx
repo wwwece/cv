@@ -15,7 +15,8 @@ const NavItem = styled.li`
   a {
     display: flex;
     align-items: center;
-    width: 200px;
+    justify-content: center;
+    width: 280px;
     height: 100%;
     padding: ${(p) => p.theme.spacing.lg};
     cursor: pointer;
@@ -23,7 +24,7 @@ const NavItem = styled.li`
     text-align: center;
     text-decoration: none;
     color: ${(p) => p.theme.color.text};
-    ${(p) => p.theme.font.size[16]};
+    ${(p) => p.theme.font.size[24]};
 
     &.is-active {
       background-color: rgba(255, 255, 255, 0.5);
