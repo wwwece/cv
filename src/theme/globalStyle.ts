@@ -21,7 +21,8 @@ const GlobalStyle = createGlobalStyle`
     background-repeat: no-repeat;
     background-size: cover;
     background-color: ${(p) => p.theme.color.background};
-    background-blend-mode: luminosity;
+    background-blend-mode: ${(p) =>
+      p.theme.colorTheme === 'color' ? undefined : 'luminosity'};
 }
 
   ul {

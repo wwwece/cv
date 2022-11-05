@@ -4,6 +4,8 @@ type ColorsType = typeof import('./theme.utils').Colors;
 
 declare module 'styled-components' {
   export interface DefaultTheme {
+    colorTheme: ColorTheme;
+
     color: ColorsType;
 
     borderRadius: {

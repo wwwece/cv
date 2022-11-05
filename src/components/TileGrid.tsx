@@ -8,6 +8,8 @@ import {
   getTiles,
   SHOW_FLIP_ALL_BUTTON_THRESHOLD,
 } from '../utils';
+import ColorThemeButton from './ColorThemeButton';
+import { observer } from 'mobx-react-lite';
 
 const Container = styled.div<{ ejected: boolean }>`
   display: ${(p) => (p.ejected ? 'none' : 'flex')};
@@ -20,10 +22,15 @@ const Container = styled.div<{ ejected: boolean }>`
   width: 100vw;
 
   button {
-    position: fixed;
     z-index: 2;
-    top: 1rem;
-    right: 1rem;
+    position: fixed;
+    top: 2rem;
+    &.flip-all-button {
+      right: 2rem;
+    }
+    &.color-theme-button {
+      left: 2rem;
+    }
   }
 `;
 
@@ -33,12 +40,12 @@ const Row = styled.div`
   justify-content: stretch;
 `;
 
-const CardGrid: React.FC = () => {
+const CardGrid: React.FC = observer(() => {
   const { uiStore } = useStore();
 
   const { tiles, totalTileCount } = useMemo(
-    () => getTiles({ inColor: false }),
-    []
+    () => getTiles({ inColor: uiStore.colorTheme === 'color' }),
+    [uiStore.colorTheme]
   );
 
   const [flippedCount, setFlippedCount] = useState(0);
@@ -71,8 +78,15 @@ const CardGrid: React.FC = () => {
 
   return (
     <Container ejected={isAllTilesFlipped}>
+      {!allFlipped && <ColorThemeButton className="color-theme-button" />}
+
       {showFlipAllButton && !allFlipped && (
-        <Button textKey="action:flipAll" onClick={handleFlipAll} />
+        <Button
+          textKey="action:flipAll"
+          onClick={handleFlipAll}
+          className="flip-all-button"
+          negative
+        />
       )}
 
       {tiles.map((row, i) => (
@@ -89,6 +103,6 @@ const CardGrid: React.FC = () => {
       ))}
     </Container>
   );
-};
+});
 
 export default CardGrid;

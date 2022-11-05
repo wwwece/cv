@@ -1,13 +1,13 @@
 import { randomItem } from '../utils';
 
 export const Colors = {
-  primary: '#282c34',
+  primary: '#21262b',
   secondary: '',
-  grey: '#282c34',
+  grey: '#21262b',
   accent: '',
   foreground: 'white',
-  background: '#282c34',
-  text: '#282c34',
+  background: '#21262b',
+  text: '#21262b',
   error: 'red',
   success: 'green',
   basket: [

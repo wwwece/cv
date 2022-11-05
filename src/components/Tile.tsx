@@ -35,6 +35,8 @@ const Container = styled.div<{ flipped: boolean; color?: string }>`
       p.color ? '2px 2px 6px 2px rgba(0, 0, 0, 0.1)' : undefined};
     background-color: ${(p) => p.color ?? p.theme.color.primary};
     color: ${(p) => p.theme.color.foreground};
+
+    transition: background-color 0.25s ease-in, box-shadow 0.5s;
   }
 
   .back {

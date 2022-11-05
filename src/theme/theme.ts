@@ -1,7 +1,9 @@
 import { DefaultTheme } from 'styled-components';
 import { Breakpoint, Colors, fontSize } from './theme.utils';
 
-export const theme: DefaultTheme = {
+const theme: DefaultTheme = {
+  colorTheme: 'bw',
+
   color: Colors,
 
   borderRadius: {
@@ -27,7 +29,7 @@ export const theme: DefaultTheme = {
 
   font: {
     main: 'Georgia',
-    secondary: 'Georgia',
+    secondary: 'Helvetica',
     size: {
       12: fontSize(0.625, 0.75),
       14: fontSize(0.75, 0.875),
@@ -40,4 +42,14 @@ export const theme: DefaultTheme = {
       38: fontSize(2, 2.375),
     },
   },
+};
+
+const inColorTheme: DefaultTheme = {
+  ...theme,
+  colorTheme: 'color',
+};
+
+export const themes = {
+  defaultTheme: theme,
+  inColorTheme,
 };
