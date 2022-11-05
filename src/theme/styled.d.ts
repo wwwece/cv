@@ -1,20 +1,10 @@
 import 'styled-components';
 
-interface Colors {
-  primary: string;
-  secondary: string;
-  grey: string;
-  accent: string;
-  foreground: string;
-  background: string;
-  text: string;
-  error: string;
-  success: string;
-}
+type ColorsType = typeof import('./theme.utils').Colors;
 
 declare module 'styled-components' {
   export interface DefaultTheme {
-    color: Colors;
+    color: ColorsType;
 
     borderRadius: {
       sm: string;

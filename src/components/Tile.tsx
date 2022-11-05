@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const FLIP_DELAY = 8; // ms
 
-const Container = styled.div<{ flipped: boolean }>`
+const Container = styled.div<{ flipped: boolean; color?: string }>`
   position: relative;
   flex: 1;
   transform-style: preserve-3d;
@@ -31,8 +31,9 @@ const Container = styled.div<{ flipped: boolean }>`
   }
 
   .front {
-    /* box-shadow: 2px 2px 6px 2px rgba(0, 0, 0, 0.1); */
-    background-color: ${(p) => p.theme.color.primary};
+    box-shadow: ${(p) =>
+      p.color ? '2px 2px 6px 2px rgba(0, 0, 0, 0.1)' : undefined};
+    background-color: ${(p) => p.color ?? p.theme.color.primary};
     color: ${(p) => p.theme.color.foreground};
   }
 
@@ -48,7 +49,13 @@ interface Props extends TileType {
   onFlip: () => void;
 }
 
-const Tile: React.FC<Props> = ({ content, index, allFlipped, onFlip }) => {
+const Tile: React.FC<Props> = ({
+  content,
+  index,
+  color,
+  allFlipped,
+  onFlip,
+}) => {
   const [flipped, setFlipped] = useState(false);
 
   useEffect(() => {
@@ -66,7 +73,11 @@ const Tile: React.FC<Props> = ({ content, index, allFlipped, onFlip }) => {
   };
 
   return (
-    <Container className={flipped ? ' flipped' : ''} flipped={flipped}>
+    <Container
+      className={flipped ? ' flipped' : ''}
+      flipped={flipped}
+      color={color}
+    >
       <div className="front" onMouseEnter={handleMouseEnter}>
         {content}
       </div>

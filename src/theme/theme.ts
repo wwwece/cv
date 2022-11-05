@@ -1,17 +1,5 @@
 import { DefaultTheme } from 'styled-components';
-import { Breakpoint, fontSize } from './theme.utils';
-
-const Colors = {
-  primary: '#282c34',
-  secondary: '',
-  grey: '#282c34',
-  accent: '',
-  foreground: 'white',
-  background: '#282c34',
-  text: '#282c34',
-  error: 'red',
-  success: 'green',
-};
+import { Breakpoint, Colors, fontSize } from './theme.utils';
 
 export const theme: DefaultTheme = {
   color: Colors,

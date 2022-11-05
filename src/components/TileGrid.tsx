@@ -1,15 +1,13 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback, useEffect, useMemo } from 'react';
 import styled from 'styled-components';
 import Tile from './Tile';
 import Button from './Button';
 import { useStore } from '../store';
-
-const FLIP_ALL_THRESHOLD = 0.2;
-const SHOW_FLIP_ALL_BUTTON_THRESHOLD = 0.02;
-
-const ROWS = 20;
-const COLS = 40;
-const WELCOME_WORDS = 'Hell, world!';
+import {
+  FLIP_ALL_THRESHOLD,
+  getTiles,
+  SHOW_FLIP_ALL_BUTTON_THRESHOLD,
+} from '../utils';
 
 const Container = styled.div<{ ejected: boolean }>`
   display: ${(p) => (p.ejected ? 'none' : 'flex')};
@@ -38,34 +36,16 @@ const Row = styled.div`
 const CardGrid: React.FC = () => {
   const { uiStore } = useStore();
 
-  const row: string[] = Array(COLS).fill('');
-  const rows: string[][] = Array(ROWS).fill(row);
-
-  const welcomeLineEmptyChars = COLS - WELCOME_WORDS.length;
-  const welcomePrefix = Math.ceil(welcomeLineEmptyChars / 2);
-  const welcomePostfix = Math.floor(welcomeLineEmptyChars / 2);
-  const welcomeLine = [
-    ...Array(welcomePrefix).fill(''),
-    ...WELCOME_WORDS.split(''),
-    ...Array(welcomePostfix).fill(''),
-  ];
-
-  rows.splice(ROWS / 2, 0, welcomeLine);
-
-  const tiles: TileType[][] = rows.map((row, i) =>
-    row.map((content, j) => ({
-      content,
-      index: i * rows.length + (j + 1),
-    }))
+  const { tiles, totalTileCount } = useMemo(
+    () => getTiles({ inColor: false }),
+    []
   );
-
-  const tileCount = rows.length * row.length;
 
   const [flippedCount, setFlippedCount] = useState(0);
   const [allFlipped, setAllFlipped] = useState(false);
 
-  const isAllTilesFlipped = flippedCount >= tileCount;
-  const flippedPercent = flippedCount / tileCount;
+  const isAllTilesFlipped = flippedCount >= totalTileCount;
+  const flippedPercent = flippedCount / totalTileCount;
   const showFlipAllButton = flippedPercent >= SHOW_FLIP_ALL_BUTTON_THRESHOLD;
 
   // Flip all tiles after user has manually flipped certain percent of them (threshold)

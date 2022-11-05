@@ -1,3 +1,29 @@
+import { randomItem } from '../utils';
+
+export const Colors = {
+  primary: '#282c34',
+  secondary: '',
+  grey: '#282c34',
+  accent: '',
+  foreground: 'white',
+  background: '#282c34',
+  text: '#282c34',
+  error: 'red',
+  success: 'green',
+  basket: [
+    '#F94144',
+    '#F3722C',
+    '#F8961E',
+    '#F9844A',
+    '#F9C74F',
+    '#90BE6D',
+    '#43AA8B',
+    '#4D908E',
+    '#577590',
+    '#277DA1',
+  ],
+};
+
 export enum Breakpoint {
   mobile = 800,
   tablet = 1000,
@@ -10,3 +36,6 @@ export const fontSize = (sm: number, md: number) => `
     font-size: ${sm}rem;
   }
 `;
+
+export const randomColor = (colorBasket: string[] = Colors.basket) =>
+  randomItem(colorBasket);
