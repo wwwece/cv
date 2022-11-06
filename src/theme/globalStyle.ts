@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { randomColor } from './theme.utils';
 
 const GlobalStyle = createGlobalStyle`
   html { box-sizing: border-box; }
@@ -28,7 +29,7 @@ const GlobalStyle = createGlobalStyle`
     ${(p) => p.theme.font.size[18]};
     line-height: 200%;
   }
-  
+
   h1 { ${(p) => p.theme.font.size[32]}; }
   h2 { ${(p) => p.theme.font.size[28]}; }
   h3 { ${(p) => p.theme.font.size[24]}; }
@@ -49,7 +50,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   hr {
-    border: 1px solid ${(p) => p.theme.color.text};;
+    border: 1px solid ${(p) =>
+      p.theme.colorTheme === 'color' ? randomColor() : p.theme.color.text};
   }
 
   @keyframes slideInFromBottom {

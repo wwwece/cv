@@ -47,6 +47,16 @@ const StyledHeader = styled.header`
       right: ${(p) => p.theme.spacing.md};
     }
   }
+
+  @media ${(p) => p.theme.breakpoint.mobile} {
+    .left-content {
+      top: ${(p) => p.theme.spacing.sm};
+      left: ${(p) => p.theme.spacing.sm};
+    }
+    .right-content {
+      top: ${(p) => p.theme.spacing.md};
+    }
+  }
 `;
 
 const Header: React.FC = () => {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-const FLIP_DELAY = 8; // ms
+const FLIP_DELAY = 4; // ms
 
 const Container = styled.div<{ flipped: boolean; color?: string }>`
   position: relative;
@@ -60,21 +60,25 @@ const Tile: React.FC<Props> = ({
   // If allFlipped flag was turner on, flip all tiles.
   // The delay is increasing for each tile in order to create a chain reaction.
   useEffect(() => {
-    if (allFlipped && !flipped) {
-      setTimeout(() => {
+    const timeout = setTimeout(() => {
+      if (allFlipped && !flipped) {
         setFlipped(true);
         onFlip();
-      }, FLIP_DELAY * index);
-    }
+      }
+    }, FLIP_DELAY * index);
+
+    return () => clearTimeout(timeout);
   }, [allFlipped, flipped, index, onFlip]);
 
   // Check if "allFlipped" changed back to false.
   // In that case all tiles should be visible again.
   useEffect(() => {
-    if (!allFlipped) {
-      setFlipped(false);
-    }
-  }, [allFlipped]);
+    const timeout = setTimeout(() => {
+      if (!allFlipped) setFlipped(false);
+    }, FLIP_DELAY * index);
+
+    return () => clearTimeout(timeout);
+  }, [allFlipped, index]);
 
   const handleMouseEnter = () => {
     setFlipped(true);
