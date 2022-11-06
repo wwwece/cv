@@ -8,6 +8,9 @@ const URL = {
 export interface ApiConfig extends AxiosRequestConfig<any> {}
 
 export const API_CONFIG: AxiosRequestConfig<any> = {
-  baseURL: process.env.NODE_ENV === 'development' ? URL.local : URL.prod,
+  // NOTE: Heroku's CRA app's NODE_ENV is always 'development' so use always prod url as default
+  // baseURL: process.env.NODE_ENV === 'development' ? URL.local : URL.prod,
+  baseURL: URL.prod,
+
   timeout: 60000,
 };
