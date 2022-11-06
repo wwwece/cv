@@ -14,7 +14,7 @@ export const StyledInfoBar = styled.footer`
   ${(p) => p.theme.font.size[16]};
   font-family: ${(p) => p.theme.font.secondary};
 
-  animation: 0.8s ease-out 0.4s 1 slideInFromTop;
+  animation: 1.2s ease-out 0s 1 slideInFromTop;
 
   > * {
     :not(:first-child) {
