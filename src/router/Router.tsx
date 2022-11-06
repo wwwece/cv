@@ -23,11 +23,7 @@ const Router: FC<Props> = ({ routes = defaultRoutes }) => (
         {routes.map(({ label, Element, ...props }) => (
           <RouterRoute
             key={props.path}
-            element={
-              <ViewWrapper title={label}>
-                <Element />
-              </ViewWrapper>
-            }
+            element={<ViewWrapper title={label}>{Element}</ViewWrapper>}
             {...props}
           />
         ))}

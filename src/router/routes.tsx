@@ -1,11 +1,9 @@
+import React from 'react';
 import i18n from '../i18n/config';
 import { RouteCategory } from '../types/routes.enums';
 import { slugify } from '../utils';
-import BehindTheScenes from '../views/BehindTheScenes';
-import Education from '../views/Education';
 import FrontPage from '../views/FrontPage';
-import Me from '../views/Me';
-import Work from '../views/Work';
+import Page from '../views/Page';
 
 export const pathAndLabel = (key: string) => {
   const label = i18n.t(`route:${key}`);
@@ -17,26 +15,26 @@ const routes: Route[] = [
     path: '/',
     label: i18n.t('route:frontPage'),
     index: true,
-    Element: FrontPage,
+    Element: <FrontPage />,
   },
   {
     ...pathAndLabel('me'),
-    Element: Me,
+    Element: <Page slug="about-me" />,
     category: [RouteCategory.navBar],
   },
   {
     ...pathAndLabel('education'),
-    Element: Education,
+    Element: <Page slug="education" />,
     category: [RouteCategory.navBar],
   },
   {
     ...pathAndLabel('work'),
-    Element: Work,
+    Element: <Page slug="work" />,
     category: [RouteCategory.navBar],
   },
   {
     ...pathAndLabel('behindTheScenes'),
-    Element: BehindTheScenes,
+    Element: <Page slug="behind-the-scenes" />,
     category: [RouteCategory.navBar],
   },
 ];

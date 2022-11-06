@@ -1,11 +1,13 @@
 import React, { FC } from 'react';
 import { useTheme } from 'styled-components';
-import { FaPowerOff, FaPaintRoller } from 'react-icons/fa';
+import { FaPowerOff, FaPaintRoller, FaSpinner, FaSkull } from 'react-icons/fa';
 import { ColorsType } from '../theme/styled';
 
 const Icons = {
-  PowerOff: FaPowerOff,
   ChangeTheme: FaPaintRoller,
+  Error: FaSkull,
+  PowerOff: FaPowerOff,
+  Spinner: FaSpinner,
 };
 
 export type IconType = keyof typeof Icons;

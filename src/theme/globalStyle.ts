@@ -62,6 +62,15 @@ const GlobalStyle = createGlobalStyle`
       transform: translateX(0);
     }
   }
+
+  @keyframes rotating {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
 `;
 
 export default GlobalStyle;
