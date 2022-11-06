@@ -8,13 +8,6 @@ declare module 'styled-components' {
 
     color: ColorsType;
 
-    borderRadius: {
-      sm: string;
-      md: string;
-      lg: string;
-      xl: string;
-    };
-
     spacing: {
       sm: string;
       md: string;

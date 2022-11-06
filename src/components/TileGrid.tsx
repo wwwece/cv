@@ -1,5 +1,4 @@
 import React, { useState, useCallback, useEffect, useMemo } from 'react';
-import styled from 'styled-components';
 import Tile from './Tile';
 import Button from './Button';
 import { useStore } from '../store';
@@ -10,37 +9,9 @@ import {
 } from '../utils';
 import ColorThemeButton from './ColorThemeButton';
 import { observer } from 'mobx-react-lite';
+import { StyledTileGrid, StyledTileGridRow } from './TileGrid.styled';
 
-const Container = styled.div<{ ejected: boolean }>`
-  display: ${(p) => (p.ejected ? 'none' : 'flex')};
-  position: fixed;
-  top: 0;
-  left: 0;
-  flex-direction: column;
-  justify-content: stretch;
-  height: 100vh;
-  width: 100vw;
-
-  button {
-    z-index: 2;
-    position: fixed;
-    top: 2rem;
-    &.flip-all-button {
-      right: 2rem;
-    }
-    &.color-theme-button {
-      left: 2rem;
-    }
-  }
-`;
-
-const Row = styled.div`
-  display: flex;
-  flex: 1;
-  justify-content: stretch;
-`;
-
-const CardGrid: React.FC = observer(() => {
+const TileGrid: React.FC = observer(() => {
   const { uiStore } = useStore();
 
   const [flippedCount, setFlippedCount] = useState(0);
@@ -94,7 +65,7 @@ const CardGrid: React.FC = observer(() => {
   }, []);
 
   return (
-    <Container ejected={isAllTilesFlipped}>
+    <StyledTileGrid ejected={isAllTilesFlipped}>
       {!allFlipped && <ColorThemeButton className="color-theme-button" />}
 
       {showFlipAllButton && !allFlipped && (
@@ -107,7 +78,7 @@ const CardGrid: React.FC = observer(() => {
       )}
 
       {tiles.map((row, i) => (
-        <Row key={i}>
+        <StyledTileGridRow key={i}>
           {row.map((tile: TileType, j: number) => (
             <Tile
               key={j}
@@ -116,10 +87,10 @@ const CardGrid: React.FC = observer(() => {
               {...tile}
             />
           ))}
-        </Row>
+        </StyledTileGridRow>
       ))}
-    </Container>
+    </StyledTileGrid>
   );
 });
 
-export default CardGrid;
+export default TileGrid;

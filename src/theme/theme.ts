@@ -6,13 +6,6 @@ const theme: DefaultTheme = {
 
   color: Colors,
 
-  borderRadius: {
-    sm: '0.25rem',
-    md: '0.625rem',
-    lg: '1rem',
-    xl: '1.5rem',
-  },
-
   spacing: {
     sm: '0.375rem',
     md: '0.625rem',

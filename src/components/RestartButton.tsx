@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { useStore } from '../store';
 import Icon from './Icon';
 
-const Button = styled.button`
+const StyledButton = styled.button`
   svg {
     fill: ${(p) =>
       p.theme.colorTheme === 'color' ? p.theme.color.foreground : undefined};
@@ -23,12 +23,12 @@ const RestartButton: React.FC = observer(() => {
   } = useStore();
 
   return (
-    <Button onClick={() => setIntroCompleted(false)}>
+    <StyledButton onClick={() => setIntroCompleted(false)}>
       <Icon
         type="PowerOff"
         colorKey={colorTheme === 'color' ? 'foreground' : 'background'}
       />
-    </Button>
+    </StyledButton>
   );
 });
 

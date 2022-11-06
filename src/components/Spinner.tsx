@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { randomColor } from '../theme';
 import Icon from './Icon';
 
-const SpinnerContainer = styled.div`
+const Container = styled.div`
   display: flex;
   flex: auto;
   justify-content: center;
@@ -20,11 +20,11 @@ const StyledSpinner = styled.div`
 `;
 
 const Spinner: React.FC = () => (
-  <SpinnerContainer>
+  <Container>
     <StyledSpinner>
       <Icon type="Spinner" size="5rem" />
     </StyledSpinner>
-  </SpinnerContainer>
+  </Container>
 );
 
 export default Spinner;
