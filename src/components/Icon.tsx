@@ -1,11 +1,24 @@
 import React, { FC } from 'react';
 import { useTheme } from 'styled-components';
-import { FaPowerOff, FaPaintRoller, FaSpinner, FaSkull } from 'react-icons/fa';
+import {
+  FaAt,
+  FaGithub,
+  FaLinkedin,
+  FaPaintRoller,
+  FaPowerOff,
+  FaSkull,
+  FaSpinner,
+  FaUserAstronaut,
+} from 'react-icons/fa';
 import { ColorsType } from '../theme/styled';
 
 const Icons = {
   ChangeTheme: FaPaintRoller,
+  Email: FaAt,
   Error: FaSkull,
+  Github: FaGithub,
+  LinkedIn: FaLinkedin,
+  Person: FaUserAstronaut,
   PowerOff: FaPowerOff,
   Spinner: FaSpinner,
 };

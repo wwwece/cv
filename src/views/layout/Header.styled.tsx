@@ -33,7 +33,7 @@ export const StyledHeader = styled.header`
     }
   }};
 
-  animation: 0.5s ease-out 0s 1 slideInFromBottom;
+  animation: 0.6s ease-out 0s 1 slideInFromBottom;
 
   @media ${(p) => p.theme.breakpoint.tablet} {
     .left-content {

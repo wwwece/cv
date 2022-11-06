@@ -8,7 +8,7 @@ export const Main = styled.main`
   background-color: rgba(255, 255, 255, 0.9);
 
   margin-top: ${(p) => p.theme.spacing.xxl};
-  margin-bottom: ${(p) => p.theme.spacing.xxl};
+  margin-bottom: 100px;
   padding: ${(p) => p.theme.spacing.xxl};
 
   min-height: 500px;

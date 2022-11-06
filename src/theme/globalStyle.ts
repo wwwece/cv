@@ -63,6 +63,15 @@ const GlobalStyle = createGlobalStyle`
     }
   }
 
+  @keyframes slideInFromTop {
+    0% {
+      transform: translateY(-110vh);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
   @keyframes rotating {
     from {
       transform: rotate(0deg);
