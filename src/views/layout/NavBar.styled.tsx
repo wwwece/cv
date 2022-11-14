@@ -29,6 +29,17 @@ export const NavItem = styled.li`
     text-align: center;
     text-decoration: none;
 
+    &.is-active,
+    :hover {
+      > span {
+        transform: rotate(-2.5deg);
+      }
+    }
+
+    &.is-active {
+      text-decoration: underline;
+    }
+
     ${(p) => {
       switch (p.theme.colorTheme) {
         case 'color':
@@ -56,6 +67,8 @@ export const NavItem = styled.li`
           `;
       }
     }}
+
+    transition: 0.5s;
 
     ${(p) => p.theme.font.size[24]};
   }

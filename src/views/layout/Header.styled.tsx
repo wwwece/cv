@@ -29,11 +29,14 @@ export const StyledHeader = styled.header`
       default:
         return `
           background-color: rgba(255, 255, 255, 0.75);
+          box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
         `;
     }
   }};
 
   animation: 0.6s ease-out 0s 1 slideInFromBottom;
+
+  transition: 0.5s;
 
   @media ${(p) => p.theme.breakpoint.tablet} {
     .left-content {

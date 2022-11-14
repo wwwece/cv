@@ -11,7 +11,7 @@ const NavBar: React.FC = () => (
           to={path}
           className={({ isActive }) => (isActive ? 'is-active' : '')}
         >
-          {label}
+          <span>{label}</span>
         </NavLink>
       </NavItem>
     ))}
