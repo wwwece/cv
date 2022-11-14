@@ -17,7 +17,8 @@ export const StyledButton = styled.button<StyledButtonProps>`
   ${(p) => p.theme.font.size[18]};
   font-family: ${(p) => p.theme.font.secondary};
   text-transform: uppercase;
-  font-weight: bold;
+  font-weight: 900;
+  letter-spacing: 0.075rem;
 
   :hover {
     background-color: ${(p) =>

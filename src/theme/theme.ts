@@ -21,8 +21,8 @@ const theme: DefaultTheme = {
   },
 
   font: {
-    main: 'Georgia',
-    secondary: 'Helvetica',
+    main: 'Merriweather, serif',
+    secondary: 'Lato, sans-serif',
     size: {
       12: fontSize(0.625, 0.75),
       14: fontSize(0.75, 0.875),
