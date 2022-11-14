@@ -8,7 +8,7 @@ export const ROWS_COUNT = 21;
 export const COLS_COUNT = 40;
 export const COLS_COUNT_TABLET = 20;
 export const COLS_COUNT_MOBILE = 15;
-const DEFAULT_TEXT = 'Hell, world!';
+export const DEFAULT_TEXT = 'Hell, world!';
 
 interface GetTiles {
   rowCount?: number;
@@ -47,7 +47,7 @@ export const getTiles = (props: GetTiles = {}) => {
   const tiles: TileType[][] = rows.map((row, i) =>
     row.map((content, j) => ({
       content,
-      index: i * ROWS_COUNT + (j + 1),
+      index: i * rowCount + (j + 1),
       color: inColor ? randomColor() : undefined,
     }))
   );
