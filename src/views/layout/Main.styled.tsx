@@ -4,7 +4,6 @@ import { NAV_ITEM_WIDTH } from './NavBar.styled';
 export const Main = styled.main`
   max-width: ${NAV_ITEM_WIDTH * 3}px;
   height: 100%;
-  overflow-x: scroll;
 
   h1 {
     text-align: center;
@@ -31,8 +30,8 @@ export const Main = styled.main`
 
   border-radius: 12.5rem 1rem 12.5rem 1rem;
 
-  margin-top: ${(p) => p.theme.spacing.xxl};
-  margin-bottom: 100px;
+  margin-top: 8.5rem;
+  margin-bottom: 8.5rem;
   padding: ${(p) => p.theme.spacing.xxl};
 
   min-height: 500px;
@@ -43,11 +42,13 @@ export const Main = styled.main`
   animation: 1s ease-out 0s 1 slideInFromBottom;
 
   @media ${(p) => p.theme.breakpoint.laptop} {
+    margin-top: 10rem;
     margin-left: auto;
     border-radius: 9rem 0.5rem 9rem 0.5rem;
   }
 
   @media ${(p) => p.theme.breakpoint.mobile} {
+    margin-top: 16rem;
     margin-left: ${(p) => p.theme.spacing.lg};
     margin-right: ${(p) => p.theme.spacing.lg};
     border-radius: 6rem 0.5rem 6rem 0.5rem;
