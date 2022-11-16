@@ -7,6 +7,9 @@ export const NavBarContainer = styled.ul`
   display: flex;
   justify-content: center;
   align-items: stretch;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
 
   @media ${(p) => p.theme.breakpoint.tablet} {
     flex-wrap: wrap;

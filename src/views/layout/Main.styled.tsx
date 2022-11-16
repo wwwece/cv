@@ -9,7 +9,8 @@ export const Main = styled.main`
     text-align: center;
   }
 
-  p::first-letter {
+  p::first-letter,
+  h2::first-letter {
     ${(p) => p.theme.font.size[28]};
   }
 
@@ -48,7 +49,7 @@ export const Main = styled.main`
   }
 
   @media ${(p) => p.theme.breakpoint.mobile} {
-    margin-top: 16rem;
+    margin-top: 18rem;
     margin-left: ${(p) => p.theme.spacing.lg};
     margin-right: ${(p) => p.theme.spacing.lg};
     border-radius: 6rem 0.5rem 6rem 0.5rem;

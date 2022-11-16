@@ -30,15 +30,17 @@ export const getTiles = (props: GetTiles = {}) => {
     inColor,
   } = props;
 
+  const welcomeText = text.length <= colCount ? text : DEFAULT_TEXT;
+
   const row: string[] = Array(colCount).fill('');
   const rows: string[][] = Array(rowCount).fill(row);
 
-  const textLineEmptyChars = colCount - text.length;
+  const textLineEmptyChars = colCount - welcomeText.length;
   const textPrefixCount = Math.ceil(textLineEmptyChars / 2);
   const textPostfixCount = Math.floor(textLineEmptyChars / 2);
   const textLine = [
     ...Array(textPrefixCount).fill(''),
-    ...text.split(''),
+    ...welcomeText.split(''),
     ...Array(textPostfixCount).fill(''),
   ];
 

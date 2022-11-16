@@ -1,29 +1,24 @@
-import { action, makeObservable, observable, runInAction } from 'mobx';
+import { makeAutoObservable, runInAction } from 'mobx';
 import { Api } from '../api/RootApi';
 import { RootStore } from './RootStore';
-
-type Entity = Page | undefined;
 
 export class PagesStore {
   rootStore: RootStore;
   api: Api;
 
-  page: Entity;
-  pages: Entity[] = [];
+  page?: Page;
+  pages: Page[] = [];
   fetchingState: Api.FetchingState = 'NOT_FETCHED';
 
   constructor(rootStore: RootStore, api: Api) {
     this.rootStore = rootStore;
     this.api = api;
 
-    makeObservable(this, {
-      rootStore: false,
-      api: false,
-      fetchingState: observable,
-      page: observable,
-      pages: observable,
-      getPage: action,
-    });
+    makeAutoObservable(this, { rootStore: false, api: false });
+  }
+
+  get isBusy() {
+    return this.fetchingState === 'FETCHING';
   }
 
   getPage = async ({ slug }: Api.GetEntityBySlug) => {

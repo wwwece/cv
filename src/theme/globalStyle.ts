@@ -23,22 +23,42 @@ const GlobalStyle = createGlobalStyle`
       p.theme.colorTheme === 'color' ? undefined : 'luminosity'};
   }
 
-  p {
+  p, ul {
     ${(p) => p.theme.font.size[18]};
     line-height: 200%;
   }
 
+  strong {
+    text-transform: uppercase;
+  }
+
+  a {
+    font-weight: bold;
+    color: ${(p) =>
+      p.theme.colorTheme === 'color'
+        ? randomColor()
+        : p.theme.color.background};
+        
+    :hover {
+      text-decoration: none;
+    }
+  }
+
+  h2, h3, h4, h5, h6 {
+    margin-top: ${(p) => p.theme.spacing.xl};;
+    margin-bottom: ${(p) => p.theme.spacing.md};;
+  }
+
   h1 { ${(p) => p.theme.font.size[32]}; }
-  h2 { ${(p) => p.theme.font.size[28]}; }
-  h3 { ${(p) => p.theme.font.size[24]}; }
-  h4 { ${(p) => p.theme.font.size[20]}; }
-  h5 { ${(p) => p.theme.font.size[20]}; }
-  h6 { ${(p) => p.theme.font.size[20]}; }
+  h2 { ${(p) => p.theme.font.size[20]}; }
+  h3 { ${(p) => p.theme.font.size[18]}; }
+  h4 { ${(p) => p.theme.font.size[16]}; }
+  h5 { ${(p) => p.theme.font.size[16]}; }
+  h6 { ${(p) => p.theme.font.size[16]}; }
 
   ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+    margin: ${(p) => p.theme.spacing.md};
+    padding-left: ${(p) => p.theme.spacing.xl};
   }
 
   button {
@@ -51,6 +71,8 @@ const GlobalStyle = createGlobalStyle`
     border: 1px solid ${(p) =>
       p.theme.colorTheme === 'color' ? randomColor() : p.theme.color.text};
   }
+
+  .text-center { text-align: center; }
 
   @keyframes slideInFromBottom {
     0% {
