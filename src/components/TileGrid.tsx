@@ -18,8 +18,12 @@ const TileGrid: React.FC = observer(() => {
   const [allFlipped, setAllFlipped] = useState(uiStore.introCompleted);
 
   const { tiles, totalTileCount } = useMemo(
-    () => getTiles({ inColor: uiStore.colorTheme === 'color' }),
-    [uiStore.colorTheme]
+    () =>
+      getTiles({
+        inColor: uiStore.colorTheme === 'color',
+        text: uiStore.employer ? `Hello, ${uiStore.employer}!` : undefined,
+      }),
+    [uiStore.colorTheme, uiStore.employer]
   );
 
   const isAllTilesFlipped = flippedCount >= totalTileCount;
