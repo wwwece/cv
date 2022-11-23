@@ -29,8 +29,9 @@ const TileGrid: React.FC = observer(() => {
   const isAllTilesFlipped = flippedCount >= totalTileCount;
   const flippedPercent = flippedCount / totalTileCount;
   const showFlipAllButton =
-    uiStore.windowDimensions.isTablet ||
-    flippedPercent >= SHOW_FLIP_ALL_BUTTON_THRESHOLD;
+    flippedPercent >= SHOW_FLIP_ALL_BUTTON_THRESHOLD ||
+    // On smaller screens, make sure at least one tile is flipped before showing button
+    (uiStore.windowDimensions.isTablet && flippedPercent >= 0.0001);
 
   /**
    * Flip all tiles after user has manually flipped certain percent of them (threshold)
