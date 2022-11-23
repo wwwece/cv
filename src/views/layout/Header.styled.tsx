@@ -15,10 +15,10 @@ export const StyledHeader = styled.header`
     z-index: 1;
   }
   .left-content {
-    left: ${(p) => p.theme.spacing.xxl};
+    left: ${(p) => p.theme.spacing.xl};
   }
   .right-content {
-    right: ${(p) => p.theme.spacing.xxl};
+    right: ${(p) => p.theme.spacing.xl};
   }
 
   ${(p) => {
@@ -30,7 +30,7 @@ export const StyledHeader = styled.header`
         `;
       default:
         return `
-          background-color: rgba(255, 255, 255, 0.75);
+          background-color: rgba(255, 255, 255, 1);
           box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.5);
         `;
     }
@@ -42,20 +42,12 @@ export const StyledHeader = styled.header`
 
   @media ${(p) => p.theme.breakpoint.tablet} {
     .left-content {
+      top: ${(p) => p.theme.spacing.lg};
       left: ${(p) => p.theme.spacing.md};
     }
     .right-content {
+      top: ${(p) => p.theme.spacing.lg};
       right: ${(p) => p.theme.spacing.md};
-    }
-  }
-
-  @media ${(p) => p.theme.breakpoint.mobile} {
-    .left-content {
-      top: ${(p) => p.theme.spacing.sm};
-      left: ${(p) => p.theme.spacing.sm};
-    }
-    .right-content {
-      top: ${(p) => p.theme.spacing.md};
     }
   }
 `;

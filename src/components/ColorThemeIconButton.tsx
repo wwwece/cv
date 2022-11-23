@@ -5,20 +5,12 @@ import { useTranslation } from 'react-i18next';
 import styled, { useTheme } from 'styled-components';
 import { useStore } from '../store';
 import { randomColor } from '../theme';
+import { StyledIconButton } from './Button.styled';
 import Icon from './Icon';
 
-const BUTTON_SIZE = '60px';
-
-const StyledButton = styled.button<{ color?: string }>`
+const StyledButton = styled(StyledIconButton)<{ color?: string }>`
   background-color: ${(p) => p.color ?? p.theme.color.background};
-  border-radius: ${BUTTON_SIZE};
   border: 2px solid ${(p) => p.theme.color.foreground};
-  width: ${BUTTON_SIZE};
-  height: ${BUTTON_SIZE};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
   transition: 0.75s;
 `;
 

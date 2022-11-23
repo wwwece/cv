@@ -2,7 +2,7 @@ import { AxiosRequestConfig } from 'axios';
 
 const URL = {
   local: 'http://localhost:1337',
-  prod: `https://toniweckroth-api.herokuapp.com/`,
+  prod: `https://toni-weckroth-api.onrender.com/`,
 };
 
 export interface ApiConfig extends AxiosRequestConfig<any> {}

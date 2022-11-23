@@ -25,3 +25,14 @@ export const StyledButton = styled.button<StyledButtonProps>`
       darken(0.05, p.theme.color[p.negative ? 'foreground' : 'background'])};
   }
 `;
+
+const ICON_BUTTON_SIZE = '60px';
+
+export const StyledIconButton = styled.button`
+  border-radius: ${ICON_BUTTON_SIZE};
+  width: ${ICON_BUTTON_SIZE};
+  height: ${ICON_BUTTON_SIZE};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;

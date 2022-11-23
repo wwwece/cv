@@ -2,6 +2,8 @@ import React, { FC } from 'react';
 import { useTheme } from 'styled-components';
 import {
   FaAt,
+  FaBars,
+  FaChevronUp,
   FaGithub,
   FaLinkedin,
   FaPaintRoller,
@@ -14,10 +16,12 @@ import { ColorsType } from '../theme/styled';
 
 const Icons = {
   ChangeTheme: FaPaintRoller,
+  ChevronUp: FaChevronUp,
   Email: FaAt,
   Error: FaSkull,
   Github: FaGithub,
   LinkedIn: FaLinkedin,
+  Menu: FaBars,
   Person: FaUserAstronaut,
   PowerOff: FaPowerOff,
   Spinner: FaSpinner,

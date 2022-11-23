@@ -3,19 +3,28 @@ import { randomColor } from '../../theme';
 
 export const NAV_ITEM_WIDTH = 280;
 
-export const NavBarContainer = styled.ul`
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+export const NavBarContainer = styled.div`
+  button.nav-menu-button {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  > ul.nav-items {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
 
   @media ${(p) => p.theme.breakpoint.tablet} {
-    flex-wrap: wrap;
-    width: 100vw;
-    justify-content: stretch;
-    align-items: stretch;
+    > ul.nav-items {
+      flex-wrap: wrap;
+      width: 100vw;
+      justify-content: stretch;
+      align-items: stretch;
+    }
   }
 `;
 
@@ -61,12 +70,6 @@ export const NavItem = styled.li`
           return `
             background-color: none;
             color: ${p.theme.color.text};
-            &.is-active, :hover  {
-              background-color: rgba(255, 255, 255, 0.5);
-            }
-            :active {
-              background-color: rgba(255, 255, 255, 1);
-            }
           `;
       }
     }}

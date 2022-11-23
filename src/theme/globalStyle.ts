@@ -12,6 +12,8 @@ const GlobalStyle = createGlobalStyle`
     font-family: ${(p) => p.theme.font.main};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    overflow-x: hidden;
     
     background-image: url('bg.jpg');
     background-attachment: fixed;
