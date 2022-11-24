@@ -20,10 +20,28 @@ export const NavBarContainer = styled.div`
 
   @media ${(p) => p.theme.breakpoint.tablet} {
     > ul.nav-items {
+      position: absolute;
+      left: 0;
+      height: 0;
+      overflow: hidden;
+      background-color: ${(p) => p.theme.color.foreground};
       flex-wrap: wrap;
       width: 100vw;
       justify-content: stretch;
       align-items: stretch;
+
+      &.is-open {
+        height: 136px;
+        transition: height 0.3s ease-out;
+      }
+    }
+  }
+
+  @media ${(p) => p.theme.breakpoint.mobile} {
+    > ul.nav-items {
+      &.is-open {
+        height: 256px;
+      }
     }
   }
 `;

@@ -14,12 +14,22 @@ const GlobalStyle = createGlobalStyle`
     -moz-osx-font-smoothing: grayscale;
 
     overflow-x: hidden;
-    
-    background-image: url('bg.jpg');
-    background-attachment: fixed;
+  }
+
+  /* A little hack to prevent bg image "jumping" when scrolling on mobile screens */
+  #bg-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    transform: scale(1.0); 
+
+    background-image: url("bg.jpg");
     background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
+    background-repeat: no-repeat;
     background-color: ${(p) => p.theme.color.background};
     background-blend-mode: ${(p) =>
       p.theme.colorTheme === 'color' ? undefined : 'luminosity'};
