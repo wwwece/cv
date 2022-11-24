@@ -33,18 +33,17 @@ const NavBar: React.FC = observer(() => {
         />
       )}
 
-      <ul className="nav-items">
-        {isMenuOpen &&
-          navBarRoutes.map(({ path, label }) => (
-            <NavItem key={path} onClick={toggleMenu}>
-              <NavLink
-                to={path}
-                className={({ isActive }) => (isActive ? 'is-active' : '')}
-              >
-                <span>{label}</span>
-              </NavLink>
-            </NavItem>
-          ))}
+      <ul className={`nav-items ${isMenuOpen ? 'is-open' : ''}`}>
+        {navBarRoutes.map(({ path, label }) => (
+          <NavItem key={path} onClick={toggleMenu}>
+            <NavLink
+              to={path}
+              className={({ isActive }) => (isActive ? 'is-active' : '')}
+            >
+              <span>{label}</span>
+            </NavLink>
+          </NavItem>
+        ))}
       </ul>
     </NavBarContainer>
   );
