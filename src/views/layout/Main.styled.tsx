@@ -1,11 +1,7 @@
 import styled from 'styled-components';
 import { randomColor } from '../../theme';
-import { NAV_ITEM_WIDTH } from './NavBar.styled';
 
 export const Main = styled.main`
-  max-width: ${NAV_ITEM_WIDTH * 3}px;
-  height: 100%;
-
   h1 {
     text-align: center;
   }
@@ -54,27 +50,25 @@ export const Main = styled.main`
     }
   }};
 
-  border-radius: 12.5rem 1rem 12.5rem 1rem;
-
-  margin-top: 10rem;
-  margin-bottom: 8.5rem;
-  padding: ${(p) => p.theme.spacing.xxl};
-
-  min-height: 500px;
-
-  margin-left: ${(p) => p.theme.spacing.xxl};
-  margin-right: auto;
+  width: 48vw;
+  height: 100%;
+  min-height: 99vh;
+  padding: 10rem ${(p) => p.theme.spacing.xxl};
 
   animation: 1s ease-out 0s 1 slideInFromBottom;
 
   @media ${(p) => p.theme.breakpoint.laptop} {
-    margin-top: 8rem;
-    margin-left: auto;
-    border-radius: 4rem;
+    min-height: 70vh;
+    width: 90vw;
+    margin: 8.5rem auto;
+    padding-top: ${(p) => p.theme.spacing.xxl};
+    padding-bottom: ${(p) => p.theme.spacing.xxl};
+
+    border-radius: 0.5rem;
   }
 
   @media ${(p) => p.theme.breakpoint.mobile} {
-    margin-left: ${(p) => p.theme.spacing.lg};
-    margin-right: ${(p) => p.theme.spacing.lg};
+    width: auto;
+    margin: 6rem ${(p) => p.theme.spacing.lg};
   }
 `;
