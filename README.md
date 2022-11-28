@@ -1,6 +1,6 @@
 # CV
 
-App for presending my personal CV (etc.) information.
+App (Frontend) for presending my personal CV (etc.) information. Using external REST API to fetch data.
 
 ## Getting started
 
@@ -18,6 +18,6 @@ App for presending my personal CV (etc.) information.
 - [i18next](https://react.i18next.com/)
 - [Prettier](https://prettier.io/docs/en/index.html)
 
-## Deploy to Heroku
+## Deploy (to render.com)
 
-Just push to branch `master`
+Push to branch `master`
