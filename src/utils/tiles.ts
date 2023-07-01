@@ -4,8 +4,8 @@ import { getWindowDimensions } from './window';
 export const FLIP_ALL_THRESHOLD = 0.25; // percent
 export const SHOW_FLIP_ALL_BUTTON_THRESHOLD = 0.02; // percent
 
-export const ROWS_COUNT = 21;
-export const COLS_COUNT = 40;
+export const ROWS_COUNT = 17;
+export const COLS_COUNT = 30;
 export const COLS_COUNT_TABLET = 20;
 export const COLS_COUNT_MOBILE = 15;
 export const DEFAULT_TEXT = 'Hell, world!';

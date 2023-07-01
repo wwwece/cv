@@ -1,4 +1,4 @@
-type StorageKey = 'employer';
+type StorageKey = 'employer' | 'sessionID';
 
 interface StorageProps {
   key: StorageKey;

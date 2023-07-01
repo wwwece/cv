@@ -32,6 +32,23 @@ export abstract class BaseApi {
     }
   }
 
+  /**
+   * Make POST reguest.
+   *
+   * @param endpoint API endpoint
+   * @param data Data to be sent
+   * @param config Axios config.
+   * @returns either success or error response
+   */
+  async post<T>(endpoint: string, data: T, config?: AxiosConfig) {
+    try {
+      const response = await this.api.post(endpoint, data, config);
+      return this.handleSuccessResponse<T>(response);
+    } catch (error: any) {
+      return this.handleErrorResponse(error.response as AxiosResponse);
+    }
+  }
+
   // TODO: Add similar methods for POST, PUT, PATCH & DELETE
 
   private handleSuccessResponse<T>(response: AxiosResponse): Api.Success<T> {

@@ -31,10 +31,20 @@ export class UiStore {
     this.initializeEmployer();
   }
 
-  setIntroCompleted = (value: boolean) => (this.introCompleted = value);
+  setIntroCompleted = (value: boolean) => {
+    this.rootStore.eventsStore.triggerEvent(
+      value ? 'intro-finished' : 'intro-restarted'
+    );
+    this.introCompleted = value;
+  };
 
-  toggleColorTheme = () =>
-    (this.colorTheme = this.colorTheme === 'bw' ? 'color' : 'bw');
+  toggleColorTheme = () => {
+    const colorTheme = this.colorTheme === 'bw' ? 'color' : 'bw';
+    this.rootStore.eventsStore.triggerEvent(
+      `toggle-color-theme-to-${colorTheme}`
+    );
+    this.colorTheme = colorTheme;
+  };
 
   initializeEmployer = () => {
     const params = new URLSearchParams(window.location.search);

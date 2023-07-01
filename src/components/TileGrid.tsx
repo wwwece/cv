@@ -12,7 +12,10 @@ import { observer } from 'mobx-react-lite';
 import { StyledTileGrid, StyledTileGridRow } from './TileGrid.styled';
 
 const TileGrid: React.FC = observer(() => {
-  const { uiStore } = useStore();
+  const {
+    uiStore,
+    eventsStore: { triggerEvent },
+  } = useStore();
 
   const [flippedCount, setFlippedCount] = useState(0);
   const [allFlipped, setAllFlipped] = useState(uiStore.introCompleted);
@@ -41,7 +44,7 @@ const TileGrid: React.FC = observer(() => {
   }, [flippedPercent]);
 
   /**
-   * If all tiles are turner -> "Intro" is over
+   * If all tiles are turned -> "Intro" is over
    */
   useEffect(() => {
     if (isAllTilesFlipped) {
@@ -63,6 +66,7 @@ const TileGrid: React.FC = observer(() => {
 
   const handleFlipAll = () => {
     setAllFlipped(true);
+    triggerEvent('flip-all-clicked');
   };
 
   const handleAddToFlippedCount = useCallback(() => {

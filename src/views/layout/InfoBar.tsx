@@ -15,6 +15,7 @@ interface InfoElement {
 const InfoBar: React.FC = observer(() => {
   const {
     uiStore: { colorTheme },
+    eventsStore: { triggerEvent },
   } = useStore();
 
   const elements: InfoElement[] = [
@@ -40,11 +41,20 @@ const InfoBar: React.FC = observer(() => {
     },
   ];
 
+  const triggerLinkClickedEvent = (linkTarget?: string) => {
+    triggerEvent('link-clicked', { linkTarget });
+  };
+
   return (
     <StyledInfoBar>
       {elements.map(({ text, textPrefix, icon, link }) => (
         <StyledInfoItem key={`${text}-${icon}`}>
-          <a href={link} target="_blank" rel="noreferrer">
+          <a
+            href={link}
+            target="_blank"
+            rel="noreferrer"
+            onClick={() => triggerLinkClickedEvent(link)}
+          >
             {textPrefix}
             <Icon
               type={icon}

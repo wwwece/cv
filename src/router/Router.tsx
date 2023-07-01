@@ -9,6 +9,7 @@ import ScrollToTop from './ScrollToTop';
 import ViewWrapper from './ViewWrapper';
 import { Layout } from '../views/layout';
 import defaultRoutes from './routes';
+import RouterEvents from './RouterEvents';
 
 interface Props {
   routes?: Route[];
@@ -16,6 +17,7 @@ interface Props {
 
 const Router: FC<Props> = ({ routes = defaultRoutes }) => (
   <BrowserRouter>
+    <RouterEvents />
     <ScrollToTop />
 
     <Routes>

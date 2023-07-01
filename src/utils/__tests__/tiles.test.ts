@@ -59,9 +59,9 @@ test('default array', () => {
     text: DEFAULT_TEXT,
   });
 
-  expect(totalTileCount).toBe(840);
+  expect(totalTileCount).toBe(ROWS_COUNT * COLS_COUNT);
 
   // Check that the text is in right position
-  expect(tiles[10][14].content).toBe('H');
-  expect(tiles[10][25].content).toBe('!');
+  expect(tiles[8][9].content).toBe('H');
+  expect(tiles[8][20].content).toBe('!');
 });
