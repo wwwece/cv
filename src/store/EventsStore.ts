@@ -8,6 +8,7 @@ export class EventsStore {
   api: Api;
 
   sessionID: string;
+  helloSent: boolean = false;
 
   constructor(rootStore: RootStore, api: Api) {
     makeAutoObservable(this, { rootStore: false, api: false });
@@ -27,6 +28,10 @@ export class EventsStore {
   }
 
   triggerEvent = (eventType: AppEventType, event?: Partial<AppEvent>) => {
+    if (eventType === 'hello' && this.helloSent) return;
+
+    if (eventType === 'hello') this.helloSent = true;
+
     const payload: AppEvent = {
       event: eventType,
       sessionID: this.sessionID,

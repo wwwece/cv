@@ -1,4 +1,10 @@
 {
   "initialLoading": "Sorry, sometimes the initial load might take a while...",
-  "commonError": "Sorry, something went wrong..."
+  "commonError": "Sorry, something went wrong...",
+  "helloEvent": {
+    "title": "Wanna let me know You were here?",
+    "description": "By clickin the button below, you'll send me an event saying that you ({{employer}}) were here. This information can be combined with other events of the current session, which are triggered automatically in the background - and are anonymous by default!",
+    "button": "Say hello from {{employer}}!",
+    "thankYou": "Thank you for saying hello!"
+  }
 }

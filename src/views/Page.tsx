@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import Error from '../components/Error';
 import Spinner from '../components/Spinner';
 import { useStore } from '../store';
+import HelloEventButton from '../components/HelloEventButton';
 
 interface Props {
   slug: string;
@@ -51,6 +52,8 @@ const Page: React.FC<Props> = observer(({ slug }) => {
           dangerouslySetInnerHTML={{ __html: formatContent(page?.content) }}
         />
       )}
+
+      {slug === 'about-me' && <HelloEventButton />}
 
       {fetchingState === 'ERROR' && <Error />}
     </>

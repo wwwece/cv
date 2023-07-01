@@ -19,5 +19,5 @@ interface AppEvent {
   screenWidth?: number;
   screenHeight?: number;
   colorTheme?: ColorTheme;
-  // employer?: string;
+  employer?: string;
 }
