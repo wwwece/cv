@@ -1,5 +1,6 @@
 import React, { PropsWithChildren, useEffect } from 'react';
 import Heading from '../components/Heading';
+import TextWithTypingEffect from '../components/TextWithTypingEffect';
 
 interface Props extends PropsWithChildren {
   title: string;
@@ -13,7 +14,9 @@ const ViewWrapper: React.FC<Props> = ({ title, children }) => {
 
   return (
     <>
-      <Heading>{title}</Heading>
+      <Heading>
+        <TextWithTypingEffect text={title} intervalTime={25} />
+      </Heading>
       <hr />
       {children}
     </>

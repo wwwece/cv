@@ -5,6 +5,7 @@ import Error from '../components/Error';
 import Spinner from '../components/Spinner';
 import { useStore } from '../store';
 import HelloEventButton from '../components/HelloEventButton';
+import TextWithTypingEffect from '../components/TextWithTypingEffect';
 
 interface Props {
   slug: string;
@@ -12,6 +13,7 @@ interface Props {
 
 const Page: React.FC<Props> = observer(({ slug }) => {
   const [isLongAwait, setIsLongAwait] = useState(false);
+  const [isVeryLongAwait, setIsVeryLongAwait] = useState(false);
 
   const {
     uiStore: { employer },
@@ -31,6 +33,15 @@ const Page: React.FC<Props> = observer(({ slug }) => {
     return () => clearTimeout(timeout);
   }, [isBusy]);
 
+  useEffect(() => {
+    setIsVeryLongAwait(false);
+    const timeout = setTimeout(() => {
+      if (isBusy) setIsVeryLongAwait(true);
+    }, 7000);
+
+    return () => clearTimeout(timeout);
+  }, [isBusy]);
+
   const isTargetPage = page?.slug === slug;
 
   const formatContent = (content?: string) => {
@@ -41,10 +52,20 @@ const Page: React.FC<Props> = observer(({ slug }) => {
 
   return (
     <>
-      {!isTargetPage && isBusy && <Spinner />}
-
-      {isLongAwait && !isTargetPage && isBusy && (
-        <div className="text-center">{t('common:initialLoading')}</div>
+      {!isTargetPage && isBusy && (
+        <>
+          <Spinner />
+          {isLongAwait && (
+            <p className="text-center">
+              <TextWithTypingEffect text={t('common:initialLoading')} />
+            </p>
+          )}
+          {isVeryLongAwait && (
+            <p className="text-center">
+              <TextWithTypingEffect text={t('common:longInitialLoading')} />
+            </p>
+          )}
+        </>
       )}
 
       {isTargetPage && (
