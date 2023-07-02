@@ -10,7 +10,7 @@ const RouterEvents = () => {
   const location = useLocation();
 
   useEffect(() => {
-    triggerEvent('navigate', { path: location.pathname });
+    triggerEvent('page-view', { path: location.pathname });
   }, [location, triggerEvent]);
 
   return null;

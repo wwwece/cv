@@ -1,13 +1,13 @@
 type AppEventType =
-  | 'navigate'
+  | 'app-loaded'
+  | 'page-view'
   | 'hello'
   | 'toggle-color-theme-to-color'
   | 'toggle-color-theme-to-bw'
   | 'intro-restarted'
   | 'intro-finished'
   | 'link-clicked'
-  | 'flip-all-clicked'
-  | 'flip-all-manually';
+  | 'flip-all-clicked';
 
 interface AppEvent {
   event: EventType;
